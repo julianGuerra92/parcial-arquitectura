@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: backend_flights_database
+    container_name: backend_database
     image: postgres:16.2
     restart: always
     volumes:
@@ -10,7 +10,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
-      - POSTGRES_DB=auth_aut
+      - POSTGRES_DB=empresa_db
 
   parcial:
     build: .
