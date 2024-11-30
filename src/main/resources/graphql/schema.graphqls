@@ -1,0 +1,49 @@
+# Query para obtener los proyectos de un empleado
+type Query {
+    proyectosPorEmpleado(cedula: String!): [Proyecto]
+
+    obtenerEmpleado(cedula: String!): Empleado
+}
+
+# Mutación para registrar un proyecto con empleados
+type Mutation {
+    registrarProyecto(input: ProyectoInput): Proyecto
+    registrarEmpleado(input: EmpleadoInput): Boolean
+
+}
+
+# Definición de los tipos
+type Proyecto {
+    id: ID!
+    nombre: String!
+    descripcion: String!
+    fechaInicio: String!
+    fechaFin: String!
+    estado: String!
+    empleados: [Empleado!]!
+}
+
+type Empleado {
+    id: ID!
+    nombre: String!
+    apellido: String!
+    cedula: String!
+    rol: String!
+}
+
+# Entrada para registrar un proyecto
+input ProyectoInput {
+    nombre: String!
+    descripcion: String!
+    fechaInicio: String!
+    fechaFin: String!
+    estado: String!
+    empleados: [EmpleadoInput!]!
+}
+
+input EmpleadoInput {
+    nombre: String!
+    apellido: String!
+    cedula: String!
+    rol: String!
+}
